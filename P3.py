@@ -1,24 +1,13 @@
 # Project Euler Q3.
 
-def is_prime(n):
-    for i in range (1, n + 1):
-        if i != 1 and i != n:
-            if n % i == 0:
-                return False
-    return True
-
-def LPF(n):
-    LPF = 0
-    for i in range (n // 2, 1, -1):
-        if is_prime(i) and n % i == 0:
-            LPF = i
-            return LPF
-        else:
-            continue
-
 def main():
+    n = 600851475143
+    i = 2
+    while i * i < n: # largest prime factor will not exceed
 
-    print (LPF(600851475143))
-
+        while n % i == 0:
+            n = n // i
+        i += 1
+    print (n)
 
 main()
